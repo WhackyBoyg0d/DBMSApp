@@ -1,72 +1,45 @@
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-} from "@material-tailwind/react";
+import React from 'react';
+import icms from "../assets/icms.png";
 import {
   PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
+  CalendarIcon,
+  BookOpenIcon
 } from "@heroicons/react/24/solid";
- 
-function Sidebar() {
+
+const Sidebar = () => {
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sidebar
-        </Typography>
+    <div className="bg-secondary-100 h-screen w-80 fixed shadow top-0 left-0 z-20 ">
+      {/* Sidebar content */}
+      <div className="flex flex-col justify-start h-full p-4">
+        {/* Logo */}
+        <div className="flex items-center justify-center mb-3">
+          <img src={icms} className="h-12 rounded shadow " alt="Logo" />
+          
+        </div>
+        
+        {/* Menu */}
+        <nav className="text-white">
+          <ul className="space-y-2">
+            <li>
+                
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 flex">
+                <PresentationChartBarIcon className="h-5 w-5 mt-1 mr-3" />Dashboard</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 flex">
+                <CalendarIcon className="h-5 w-5 mt-1 mr-3" />Timetable</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 hover:bg-gray-700 flex">
+                <BookOpenIcon className="h-5 w-5 mt-1 mr-3" />
+                Courses</a>
+            </li>
+            {/* Add more menu items as needed */}
+          </ul>
+        </nav>
       </div>
-      <List>
-        <ListItem>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Dashboard
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          E-Commerce
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Inbox
-          <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-          </ListItemSuffix>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Profile
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Settings
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Log Out
-        </ListItem>
-      </List>
-    </Card>
+    </div>
   );
-}
+};
 
 export default Sidebar;

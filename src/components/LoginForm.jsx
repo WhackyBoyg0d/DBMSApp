@@ -37,14 +37,14 @@ const LoginForm = () => {
   return (
     <div className="bg-primary min-h-screen">
     <div className="flex items-center justify-center  ">
-      <img src={icms} alt="" className="h-14 mt-12 shadow-md rounded  "  />
+      <img src={icms} alt="" className="h-14 mt-12 shadow-md rounded-lg  "  />
     </div>
     
     <div className="flex items-center justify-center  mt-14">
       
       <div className="w-full max-w-md">
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
