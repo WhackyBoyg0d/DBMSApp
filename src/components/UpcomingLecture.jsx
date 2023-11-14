@@ -10,7 +10,7 @@ const UpcomingLecture = () => {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 mt-4">
+    <div className="bg-white shadow rounded-lg p-6 ">
       <h2 className="text-2xl font-bold mb-4">Upcoming Lecture</h2>
       <div className="mb-4">
         <p className="text-gray-700 font-bold">Course:</p>

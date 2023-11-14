@@ -1,5 +1,6 @@
 import { useState } from "react";
 import icms from "../assets/icms.png";
+import { useNavigate } from 'react-router-dom';
 // import logo from "../assets/logo.svg";
 
 
@@ -7,6 +8,7 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [facialData, setFacialData] = useState(null);
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -32,6 +34,8 @@ const LoginForm = () => {
     setPassword("");
     setFacialData(null);
     console.log(facialData);
+    navigate('/dashboard');
+    
   };
 
   return (
