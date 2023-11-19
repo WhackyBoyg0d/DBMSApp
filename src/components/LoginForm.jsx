@@ -1,17 +1,18 @@
 import { useState } from "react";
 import icms from "../assets/icms.png";
 import { useNavigate } from 'react-router-dom';
+import Axios from "axios";
 // import logo from "../assets/logo.svg";
 
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [facialData, setFacialData] = useState(null);
   const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -28,13 +29,29 @@ const LoginForm = () => {
 
     // Perform facial recognition here
     // You can use the facialData and process it accordingly
+    console.log(email);
+    Axios.get("http://localhost:3001/login", {
+      params: {
+        email: email,
+        password: password,
+      },
+    }).then((response) => {
+      if (response.data === "Login failed. Email not found.") {
+        alert(response.data);
+      } else {
+        console.log(response.data);
+        localStorage.setItem("accessToken", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data));
+        console.log(localStorage.getItem("user"));
+        navigate('/dashboard');
+      }
+    });
 
     // Clear form fields
-    setUsername("");
+    setEmail("");
     setPassword("");
     setFacialData(null);
-    console.log(facialData);
-    navigate('/dashboard');
+    
     
   };
 
@@ -56,15 +73,15 @@ const LoginForm = () => {
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="username"
             >
-              Username
+              Email
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
-              type="text"
-              placeholder="Enter your username"
-              value={username}
-              onChange={handleUsernameChange}
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmailChange}
             />
           </div>
           <div className="mb-6">

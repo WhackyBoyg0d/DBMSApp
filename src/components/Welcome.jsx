@@ -1,8 +1,11 @@
 import React from 'react';
 
 const Welcome = () => {
+  var name = localStorage.getItem("user");
+  name  = JSON.parse(name)[0].name
+
   // Replace with the actual user data
-  const userName = 'John Doe';
+  const userName = name;
   const loginTime = new Date().toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: 'numeric',
