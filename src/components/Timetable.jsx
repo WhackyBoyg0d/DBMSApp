@@ -66,23 +66,4 @@ const Timetable = () => {
         );
 }
 
-// class Timetable extends React.Component {
-//     render() {
-//         return (
-//             <div className='bg-white shadow rounded-lg p-6 mt-4'>
-//                 <Scheduler
-//                 dataSource={dataSource}
-//                 defaultCurrentDate={currentDate}
-//                 startDayHour={8}
-//                 endDayHour={19}
-//                 cellDuration={60}
-//                 firstDayOfWeek={1}
-//                 adaptivityEnabled={true}
-//             />
-//             </div>
-            
-//         );
-//     }
-// }
- 
 export default Timetable;

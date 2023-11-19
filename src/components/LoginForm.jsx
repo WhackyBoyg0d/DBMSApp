@@ -40,8 +40,9 @@ const LoginForm = () => {
         alert(response.data);
       } else {
         console.log(response.data);
-        localStorage.setItem("accessToken", response.data.token);
+        const loginTime = new Date()
         localStorage.setItem("user", JSON.stringify(response.data));
+        localStorage.setItem("loginTime", loginTime);
         console.log(localStorage.getItem("user"));
         navigate('/dashboard');
       }

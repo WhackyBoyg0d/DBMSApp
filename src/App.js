@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import TimetablePage from './components/TimetablePage';
+import Courses from './components/Courses';
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,9 @@ function App() {
     },
     { path: '/timetable', 
     element: <TimetablePage/>
+    },
+    { path: '/courses',
+    element: <Courses/>
     }
   ]);
 

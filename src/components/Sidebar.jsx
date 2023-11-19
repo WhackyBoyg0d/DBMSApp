@@ -6,6 +6,7 @@ import {
   CalendarIcon,
   BookOpenIcon
 } from "@heroicons/react/24/solid";
+import  Axios  from 'axios';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -16,6 +17,18 @@ const Sidebar = () => {
 
   const clickTimetable = () => {
     navigate('/timetable');
+  }
+
+  const clickCourses = () => {
+    Axios.get("http://localhost:3001/courseInfo" , {
+      params:{
+        student_id: JSON.parse(localStorage.getItem("user"))[0].student_id
+      }
+    }).then((response) => {
+      console.log(response.data);
+      localStorage.setItem("courseInfo", JSON.stringify(response.data));
+    })
+    navigate('/courses');
   }
   return (
     <div className="bg-secondary-100 h-screen w-80 fixed shadow top-0 left-0 z-20 ">
@@ -40,7 +53,7 @@ const Sidebar = () => {
                 <CalendarIcon className="h-5 w-5 mt-1 mr-3" />Timetable</a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-4 hover:bg-gray-700 flex">
+              <a onClick={clickCourses} className="block py-2 px-4 hover:bg-gray-700 flex">
                 <BookOpenIcon className="h-5 w-5 mt-1 mr-3" />
                 Courses</a>
             </li>
