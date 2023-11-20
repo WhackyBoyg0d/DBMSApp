@@ -28,6 +28,7 @@ function App() {
       {/* <Dashboard/> */}
       <RouterProvider router={router}>
       </RouterProvider>  
+      {/* <VideoCapture/> */}
     </div>
   );
 }
