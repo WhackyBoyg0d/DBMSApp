@@ -16,13 +16,17 @@ const EnrolledCourses = ({ enrolledCourses }) => {
     }
   };
 
+  if(!enrolledCourses){
+    enrolledCourses = []; 
+  }
+
   return (
     <div className="grid grid-cols-3 gap-4">
       {enrolledCourses.map((course) => (
         <div
           key={course.course_id}
           className={`bg-white p-4 border rounded shadow  ${
-            selectedCourse === course.course_id ? 'bg-blue-200' : ''
+            selectedCourse === course.course_id ? 'bg-blue-300' : ''
           }`}
           onClick={() => handleCourseClick(course.course_id)}
         >
@@ -31,7 +35,7 @@ const EnrolledCourses = ({ enrolledCourses }) => {
           {selectedCourse === course.course_id && (
             <div className=' '>
                 <p className="text-gray-500 mt-2">Course Description</p>
-                <p className="text-gray-500 mt-2">{course.description}</p>
+                <p className="text-gray-500 mt-2">{course.course_description}</p>
             </div>
             
           )}
